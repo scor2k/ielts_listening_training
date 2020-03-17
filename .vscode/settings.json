@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "env/bin/python3",
+    "python.pythonPath": "/Users/akonyukov/SRC/MY/IELTS/ielts_listening_training/env/bin/python3.7",
     "python.formatting.provider": "black"
 }
