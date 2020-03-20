@@ -14,3 +14,12 @@ pip3 install -r requirements.txt && pip3 install -e .
 ./run dates --amount=5
 ./run digits --amount=10 --max=100
 ```
+
+### Changelog
+
+*0.2.0*
+ - added prepositions to digits
+ - added min param for digits
+
+*0.1.0* 
+ - initial release
