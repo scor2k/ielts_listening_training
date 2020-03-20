@@ -14,12 +14,10 @@ def cli():
 
 
 @cli.command(name="dates")
-@click.option(
-    "--amount", type=int, help="How many dates you wanna check", required=True
-)
-def test_dates(amount):
+@click.option("--amount", type=int, help="How many dates you wanna check", required=True)
+@click.option("--weekday", is_flag=True, help="Ask for weekday")
+def test_dates(amount, weekday):
     """Show and check digits."""
-
     lang = "en"
     result = 0
 
@@ -36,10 +34,17 @@ def test_dates(amount):
         random_number_of_days = randrange(days_between_dates)
         random_date = start_date + datetime.timedelta(days=random_number_of_days)
 
-        text = random_date.strftime("%B %d")
+        if weekday :
+            text = random_date.strftime("%A %B %d")
+        else :
+            text = random_date.strftime("%B %d")
+        
         Speech(text, lang).play()
 
-        test = input("Your answer (Month Day): ")
+        if weekday :
+            test = input("Your answer (Weekday Month Day): ")
+        else :
+            test = input("Your answer (Month Day): ")
 
         if test == text:
             result += 1
@@ -82,14 +87,14 @@ def test_digits(amount, max, min):
     result = 0
 
     for idx in range(amount):
-        sleep(0.5)
+        sleep(0.8)
         print("~" * 10)
         rnd = randrange(min, max)
         prep = prepositions[randrange(0, len(prepositions))]
-        text = f"  {prep} {rnd}"
+        text = f".{prep} {rnd}"
         Speech(text, lang).play()
 
-        test = input("Your answer: ")
+        test = input("Your answer (digit only): ")
 
         if int(test) == int(rnd):
             result += 1

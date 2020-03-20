@@ -1,4 +1,5 @@
 {
     "python.pythonPath": "/Users/akonyukov/SRC/MY/IELTS/ielts_listening_training/env/bin/python3.7",
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--line-length 120"],
 }
