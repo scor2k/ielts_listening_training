@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='ielts-listening-training',
-      version='0.2.0',
+      version='0.2.1',
       description='Play random text and check it',
       url='',
       author='Alexander Konyukov',

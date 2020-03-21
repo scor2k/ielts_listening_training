@@ -21,6 +21,8 @@ def test_dates(amount, weekday):
     lang = "en"
     result = 0
 
+    prev_dates = list()
+
     start_date = datetime.date(1200, 1, 1)
     end_date = datetime.date(2200, 12, 31)
 
@@ -32,6 +34,11 @@ def test_dates(amount, weekday):
         print("~" * 10)
 
         random_number_of_days = randrange(days_between_dates)
+
+        while random_number_of_days in prev_dates :
+          random_number_of_days = randrange(days_between_dates)
+        prev_dates.append(random_number_of_days)
+
         random_date = start_date + datetime.timedelta(days=random_number_of_days)
 
         if weekday :
@@ -86,10 +93,18 @@ def test_digits(amount, max, min):
     lang = "en"
     result = 0
 
+    prev_rnd = list()
+
     for idx in range(amount):
         sleep(0.8)
         print("~" * 10)
         rnd = randrange(min, max)
+
+        while rnd in prev_rnd :
+          rnd = randrange(min, max)
+        prev_rnd.append(rnd)
+
+
         prep = prepositions[randrange(0, len(prepositions))]
         text = f".{prep} {rnd}"
         Speech(text, lang).play()

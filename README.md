@@ -17,6 +17,9 @@ pip3 install -r requirements.txt && pip3 install -e .
 
 ### Changelog
 
+*0.2.1*
+ - do not repeat the same number or date
+
 *0.2.0*
  - added prepositions to digits
  - added min param for digits
