@@ -13,11 +13,44 @@ def cli():
     """IELTS Listening Training"""
 
 
+@cli.command(name="weekdays")
+@click.option("--amount", type=int, help="How many weekdays you wanna check", required=True)
+def test_weekdays(amount):
+    """Test your knowledge about weekdays"""
+    lang = "en"
+    result = 0
+    weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+
+    for idx in range(amount):
+        sleep(0.8)
+        print("~" * 10)
+
+        rnd = randrange(0,len(weekdays))
+        text = weekdays[rnd]
+
+        Speech(text, lang).play()
+
+        test = input("Your answer (Weekday): ")
+
+        if test == text:
+            result += 1
+            print("You are right.")
+        else:
+            print(f"The right answer is: {text}")
+            sleep(2)
+
+    print("Result:")
+    print(f" {amount} - the number of questions")
+    print(f" {result} - the number of RIGHT answers")
+
+
+
+
 @cli.command(name="dates")
 @click.option("--amount", type=int, help="How many dates you wanna check", required=True)
 @click.option("--weekday", is_flag=True, help="Ask for weekday")
 def test_dates(amount, weekday):
-    """Show and check digits."""
+    """Test your knowledge about dates"""
     lang = "en"
     result = 0
 
@@ -72,7 +105,7 @@ def test_dates(amount, weekday):
 @click.option("--max", help="The max number you wanna listen.", default=2500)
 @click.option("--min", help="The min number you wanna listen.", default=0)
 def test_digits(amount, max, min):
-    """Show and check digits."""
+    """Test your knowledge about digits."""
     prepositions = [
         "on",
         "it",
