@@ -1,3 +1,4 @@
 requests==2.23.0
 click==7.1.1
 google_speech==1.1.0 
+googletrans==2.4.0

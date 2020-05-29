@@ -6,11 +6,25 @@ import datetime
 from google_speech import Speech
 from random import randrange
 from time import sleep
+from googletrans import Translator
 
 
 @click.group()
 def cli():
     """IELTS Listening Training"""
+
+@cli.command(name="test")
+def test_test():
+    """Test your knowledge about weekdays"""
+    translator = Translator()
+    
+    text = "It is universally accepted that..."
+    tran = translator.translate(text, dest="ru").text
+    Speech(text, "en").play()
+    Speech(tran, "ru").play()
+
+
+
 
 
 @cli.command(name="weekdays")
