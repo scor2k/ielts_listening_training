@@ -6,6 +6,10 @@
 git clone https://github.com/scor2k/ielts_listening_training.git
 cd ielts_listening_training && python3 -m venv env  && source env/bin/activate 
 pip3 install -r requirements.txt && pip3 install -e .
+
+brew install sox (macos)
+yum install sox (centos)
+apt-get install sox (debian)
 ```
 
 ### How to run
